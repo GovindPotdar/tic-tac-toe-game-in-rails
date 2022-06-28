@@ -1,0 +1,42 @@
+<div class="container mt-5">
+
+    <% if params[:user] == '1'%>
+    <div class="alert alert-primary" role="alert" id="invite-link">
+    <strong>Share this link with second player to start game : <br><br>
+       <%= join_games_url(params[:id]) %></strong>
+    </div>
+    <% end %>
+    <center><h1 style="font-weight:300px;font-size:100px;" id="winner"></h1></center>
+    <div class="row" id="game-box" style="justify-content:center;display:none;">
+        <h1  style="background-color: blue;color:red">User <span id="turn" >1</span> Turn</h1>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-4 size" id="div_1" onclick="mark(1)"></div>
+                <div class="col-4 size" id="div_2" onclick="mark(2)"></div>
+                <div class="col-4 size" id="div_3" onclick="mark(3)"></div>
+            </div>
+            <div class="row">
+                <div class="col-4 size" id="div_4" onclick="mark(4)"></div>
+                <div class="col-4 size" id="div_5" onclick="mark(5)"></div>
+                <div class="col-4 size" id="div_6" onclick="mark(6)"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-4 size" id="div_7" onclick="mark(7)"></div>
+                <div class="col-4 size" id="div_8" onclick="mark(8)"></div>
+                <div class="col-4 size" id="div_9" onclick="mark(9)"></div>
+            </div>
+
+                <button style="display:none" id="game-button"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function mark(id){
+        sessionStorage.setItem("box_id", id)
+        document.getElementById("game-button").click()
+    }
+
+</script>
